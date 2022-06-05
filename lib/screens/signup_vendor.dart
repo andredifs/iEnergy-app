@@ -22,6 +22,7 @@ class _SignupVendorScreenState extends State<SignupVendorScreen> {
   final TextEditingController _distributorController = TextEditingController();
   final TextEditingController _energyBillController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _typeController = TextEditingController();
   bool _isLoading = false;
 
   void dispose() {
@@ -34,6 +35,7 @@ class _SignupVendorScreenState extends State<SignupVendorScreen> {
     _distributorController.dispose();
     _energyBillController.dispose();
     _descriptionController.dispose();
+    _typeController.dispose();
   }
 
   void signupUser() async {
@@ -49,6 +51,7 @@ class _SignupVendorScreenState extends State<SignupVendorScreen> {
       distributor: _distributorController.text,
       energyBill: _energyBillController.text,
       description: _descriptionController.text,
+      type: _typeController.text,
     );
     if (res != 'success') {
       showSnackBar(res, context);
@@ -91,6 +94,17 @@ class _SignupVendorScreenState extends State<SignupVendorScreen> {
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     hintText: "Nome",
+                    border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
+                    filled: true,
+                    fillColor: greyColor,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                TextFormField(
+                  controller: _typeController,
+                  keyboardType: TextInputType.text,
+                  decoration: const InputDecoration(
+                    hintText: "Tipo de geração (Autônomo, Empresa, Fazenda)",
                     border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                     filled: true,
                     fillColor: greyColor,

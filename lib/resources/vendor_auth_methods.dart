@@ -16,6 +16,7 @@ class VendorAuthMethods {
 
   Future<String> signUpVendor({
     required String email,
+    required String type,
     required String password,
     required String username,
     required String cpfcnpj,
@@ -30,6 +31,7 @@ class VendorAuthMethods {
         UserCredential cred = await _auth.createUserWithEmailAndPassword(email: email, password: password);
         model.Vendor vendor = model.Vendor(
           email: email,
+          type: type,
           uid: cred.user!.uid,
           cpfcnpj: cpfcnpj,
           username: username,
