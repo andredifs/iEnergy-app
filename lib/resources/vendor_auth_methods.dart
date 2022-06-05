@@ -1,42 +1,44 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:ienergy_app/models/customer.dart' as model;
+import 'package:ienergy_app/models/vendor.dart' as model;
 
-class CustomerAuthMethods {
+class VendorAuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<model.Customer> getCustomerDetails() async {
-    User currentCustomer = _auth.currentUser!;
+  Future<model.Vendor> getVendorDetails() async {
+    User currentVendor = _auth.currentUser!;
 
-    DocumentSnapshot snap = await _firestore.collection('customers').doc(currentCustomer.uid).get();
+    DocumentSnapshot snap = await _firestore.collection('vendors').doc(currentVendor.uid).get();
 
-    return model.Customer.fromSnap(snap);
+    return model.Vendor.fromSnap(snap);
   }
 
-  Future<String> signUpCustomer({
+  Future<String> signUpVendor({
     required String email,
     required String password,
     required String username,
-    required String cpf,
+    required String cpfcnpj,
     required String distributor,
     required String cep,
     required String energyBill,
+    required String description,
   }) async {
     String res = "some error occurred";
     try {
-      if (email.isNotEmpty || password.isNotEmpty || username.isNotEmpty || cpf.isNotEmpty || cep.isNotEmpty || distributor.isNotEmpty) {
+      if (email.isNotEmpty || password.isNotEmpty || username.isNotEmpty || cpfcnpj.isNotEmpty || cep.isNotEmpty || distributor.isNotEmpty) {
         UserCredential cred = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-        model.Customer customer = model.Customer(
+        model.Vendor vendor = model.Vendor(
           email: email,
           uid: cred.user!.uid,
-          cpf: cpf,
+          cpfcnpj: cpfcnpj,
           username: username,
           cep: cep,
           distributor: distributor,
           energyBill: energyBill,
+          description: description,
         );
-        await _firestore.collection('customers').doc(cred.user!.uid).set(customer.toJson());
+        await _firestore.collection('vendors').doc(cred.user!.uid).set(vendor.toJson());
         res = 'success';
       }
       // } on FirebaseAuthException catch (err) {
@@ -52,7 +54,7 @@ class CustomerAuthMethods {
     return res;
   }
 
-  Future<String> loginCustomer({
+  Future<String> loginVendor({
     required String email,
     required String password,
   }) async {

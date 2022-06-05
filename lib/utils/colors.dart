@@ -7,3 +7,4 @@ const greenColor = Color.fromRGBO(19, 219, 39, 1);
 const secondaryGreenColor = Color.fromRGBO(64, 214, 133, 1);
 const primaryColor = Colors.white;
 const secondaryColor = Colors.grey;
+const greyColor = Color.fromRGBO(240, 240, 240, 1);

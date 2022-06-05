@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ienergy_app/screens/home.dart';
+import 'package:ienergy_app/screens/home_costumer.dart';
 
 const webScreen = 600;
 
 const homeScreenItems = [
-  HomeScreen(),
+  // HomeScreen(),
   Text('search'),
   Text('profile'),
 ];

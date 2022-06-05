@@ -1,58 +1,54 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
-import 'package:ienergy_app/resources/auth_methods.dart';
+import 'package:ienergy_app/resources/vendor_auth_methods.dart';
 import 'package:ienergy_app/screens/login.dart';
 import 'package:ienergy_app/utils/colors.dart';
 import 'package:ienergy_app/utils/utils.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class SignupCustomerScreen extends StatefulWidget {
-  const SignupCustomerScreen({Key? key}) : super(key: key);
+class SignupVendorScreen extends StatefulWidget {
+  const SignupVendorScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignupCustomerScreen> createState() => _SignupCustomerScreenState();
+  State<SignupVendorScreen> createState() => _SignupVendorScreenState();
 }
 
-class _SignupCustomerScreenState extends State<SignupCustomerScreen> {
+class _SignupVendorScreenState extends State<SignupVendorScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _cpfController = TextEditingController();
+  final TextEditingController _cpfcnpjController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _cepController = TextEditingController();
   final TextEditingController _distributorController = TextEditingController();
   final TextEditingController _energyBillController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
   bool _isLoading = false;
 
   void dispose() {
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _cpfController.dispose();
+    _cpfcnpjController.dispose();
     _usernameController.dispose();
     _cepController.dispose();
     _distributorController.dispose();
     _energyBillController.dispose();
+    _descriptionController.dispose();
   }
-
-//   void selectImage() async {
-//     Uint8List img = await pickImage(ImageSource.gallery);
-//     setState(() {
-//       _image = img;
-//     });
-//   }
 
   void signupUser() async {
     setState(() {
       _isLoading = true;
     });
-    String res = await CustomerAuthMethods().signUpCustomer(
+    String res = await VendorAuthMethods().signUpVendor(
       email: _emailController.text,
       password: _passwordController.text,
       username: _usernameController.text,
-      cpf: _cpfController.text,
+      cpfcnpj: _cpfcnpjController.text,
       cep: _cepController.text,
       distributor: _distributorController.text,
       energyBill: _energyBillController.text,
+      description: _descriptionController.text,
     );
     if (res != 'success') {
       showSnackBar(res, context);
@@ -94,7 +90,7 @@ class _SignupCustomerScreenState extends State<SignupCustomerScreen> {
                   controller: _usernameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
-                    hintText: "Nome completo",
+                    hintText: "Nome",
                     border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                     filled: true,
                     fillColor: greyColor,
@@ -125,10 +121,10 @@ class _SignupCustomerScreenState extends State<SignupCustomerScreen> {
                 ),
                 const SizedBox(height: 24),
                 TextFormField(
-                  controller: _cpfController,
+                  controller: _cpfcnpjController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
-                    hintText: "CPF",
+                    hintText: "CPF/CNPJ",
                     border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                     filled: true,
                     fillColor: greyColor,
@@ -160,10 +156,10 @@ class _SignupCustomerScreenState extends State<SignupCustomerScreen> {
                 ),
                 const SizedBox(height: 24),
                 TextFormField(
-                  controller: _energyBillController,
+                  controller: _descriptionController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
-                    hintText: "Gasto médio mensal com energia",
+                    hintText: "Média de crédito excedente mensal",
                     border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
                     filled: true,
                     fillColor: greyColor,
@@ -182,7 +178,7 @@ class _SignupCustomerScreenState extends State<SignupCustomerScreen> {
                               child: CircularProgressIndicator(
                               color: primaryColor,
                             ))
-                          : const Text("Enviar", style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold))),
+                          : const Text("Log in")),
                 ),
                 const SizedBox(height: 24),
                 Row(

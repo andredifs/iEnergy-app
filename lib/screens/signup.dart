@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:ienergy_app/screens/login.dart';
 import 'package:ienergy_app/screens/signup_customer.dart';
+import 'package:ienergy_app/screens/signup_vendor.dart';
 import 'package:ienergy_app/utils/colors.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -36,7 +37,7 @@ class SignupScreen extends StatelessWidget {
             const SizedBox(height: 24),
             GestureDetector(
               onTap: () => {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const SignupCustomerScreen())),
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const SignupVendorScreen())),
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 12),
