@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
       child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'iEnergy',
           theme: ThemeData(
             primarySwatch: Colors.green,
