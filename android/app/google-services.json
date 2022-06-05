@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1020742181933",
+    "project_id": "ienergy-app",
+    "storage_bucket": "ienergy-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020742181933:android:3d32289ac11a59efbd04a4",
+        "android_client_info": {
+          "package_name": "com.example.ienergy_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020742181933-5v1b0du2h2mqdkpt8ldlb120igkl2gpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZb3ruROvCQaZdX8K4wzTrtU-BX9iIdas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020742181933-5v1b0du2h2mqdkpt8ldlb120igkl2gpu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1020742181933-hddcfpep9jj08891dggnn1jrfefsccv9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ienergyApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
