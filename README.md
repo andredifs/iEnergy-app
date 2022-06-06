@@ -1,16 +1,64 @@
-# ienergy_app
+# iEnergy App
 
-A new Flutter project.
+A platform similar to iFood that makes it easier for the consumers to find a list of generators with solar plates system available for rent. The negociation will occur by a solar rental contract. The iEnergy was developed in Flutter (is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase).
 
-## Getting Started
+## How to Use 
 
-This project is a starting point for a Flutter application.
+**Step 1:**
 
-A few resources to get you started if this is your first Flutter project:
+Download or clone this repo by using the link below:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+https://github.com/andredifs/iEnergy-app
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Step 2:**
+
+Go to project root and execute the following command in console to get the required dependencies: 
+
+```
+flutter pub get 
+```
+
+**Step 2:**
+
+Execute the following command in console to run the app:
+
+```
+flutter run
+```
+
+### Libraries & Tools Used
+
+* Firebase -> (authentication and database)
+* Provider -> (state management)
+* Mask Text Input Formatter -> (input validator)
+
+### Folder Structure
+Here is the core folder structure which flutter provides.
+
+```
+flutter-app/
+|- android
+|- build
+|- ios
+|- lib
+|- macos
+|- linux
+|- web
+|- test
+```
+
+Here is the folder structure we have been using in this project
+
+```
+lib/
+|- assets/
+|- models/
+|- providers/
+|- resources/
+|- responsive/
+|- screens/
+|- utils/
+|- widgets/
+```
