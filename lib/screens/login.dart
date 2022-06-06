@@ -1,8 +1,10 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ienergy_app/resources/auth_methods.dart';
 import 'package:ienergy_app/resources/vendor_auth_methods.dart';
+import 'package:ienergy_app/responsive/mobile_screen_layout.dart';
 import 'package:ienergy_app/screens/home_costumer.dart';
 import 'package:ienergy_app/screens/signup.dart';
 import 'package:ienergy_app/utils/colors.dart';
@@ -34,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     String res = await CustomerAuthMethods().loginCustomer(email: _emailController.text, password: _passwordController.text);
 
     if (res == 'success') {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const CustomerHomeScreen()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MobileScreenLayout()));
     } else {
       showSnackBar(res, context);
     }
@@ -50,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
     String res = await VendorAuthMethods().loginVendor(email: _emailController.text, password: _passwordController.text);
 
     if (res == 'success') {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const CustomerHomeScreen()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MobileScreenLayout()));
     } else {
       showSnackBar(res, context);
     }
@@ -71,10 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
         appBar: AppBar(
           backgroundColor: greenColor,
           centerTitle: false,
-          leading: const Icon(
-            Icons.lightbulb_outline,
-            color: primaryColor,
-          ),
+          leading: Icon(Icons.lightbulb),
           title: const Text(
             'iEnergy',
             style: TextStyle(color: primaryColor),
@@ -88,14 +87,14 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Flexible(flex: 2, child: Container()),
-                const SizedBox(height: 120),
+                const SizedBox(height: 100),
                 const Text(
                   "iEnergy",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold, color: greenColor),
                 ),
                 // SvgPicture.asset('assets/hit_spotImage.svg', color: primaryColor, height: 64)s
-                const SizedBox(height: 64),
+                const SizedBox(height: 54),
                 const TabBar(tabs: [
                   Tab(child: Text("Sou consumidor", style: TextStyle(color: greenColor))),
                   Tab(child: Text("Sou gerador", style: TextStyle(color: greenColor))),
@@ -107,7 +106,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     customerLogin(),
                   ]),
                 ),
-                Flexible(flex: 1, child: Container()),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -153,18 +151,17 @@ class _LoginScreenState extends State<LoginScreen> {
         InkWell(
           onTap: loginCustomer,
           child: Container(
-              // width: double.infinity,
-              alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              decoration: const ShapeDecoration(color: greenColor, shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4)))),
-              child: _isLoading
-                  ? const Center(child: CircularProgressIndicator(color: primaryColor))
-                  : const Text(
-                      "Login",
-                      style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
-                    )),
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            decoration: const ShapeDecoration(color: greenColor, shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(4)))),
+            child: _isLoading
+                ? const Center(child: CircularProgressIndicator(color: primaryColor))
+                : const Text(
+                    "Login",
+                    style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+                  ),
+          ),
         ),
-        const SizedBox(height: 12),
       ],
     );
   }
@@ -200,7 +197,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
                     )),
         ),
-        const SizedBox(height: 12),
       ],
     );
   }
