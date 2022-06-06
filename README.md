@@ -20,7 +20,7 @@ Go to project root and execute the following command in console to get the requi
 flutter pub get 
 ```
 
-**Step 2:**
+**Step 3:**
 
 Execute the following command in console to run the app:
 
