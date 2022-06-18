@@ -1,6 +1,13 @@
 # iEnergy App
 
-A platform similar to iFood that makes it easier for the consumers to find a list of generators with solar plates system available for rent. The negociation will occur by a solar rental contract. The iEnergy was developed in Flutter (is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase).
+A platform similar to iFood that makes it easier for the consumers to find a list of generators with solar plates system available for rent. The negotiation will occur under a solar rental contract. The iEnergy was developed in Flutter (is an open source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase). This project was a finalist for the Navi Tech Journey Hackathon.
+
+## Authors
+
+- [@andredifs](https://github.com/andredifs)
+- [@Ferroca2](https://github.com/Ferroca2)
+- [@Rafael450](https://github.com/Rafael450)
+- [@marcelomeloo](https://github.com/marcelomeloo)
 
 ## How to Use 
 
